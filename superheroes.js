@@ -764,3 +764,34 @@ const superheroes = [
   },
 ];
 //Start your code here
+superheroes.forEach(showHero);
+
+function showHero(hero) {
+  console.log(hero);
+  const template = document.querySelector("template").content;
+  const clone = template.cloneNode(true);
+  clone.querySelector("h5").textContent = hero.id;
+  clone.querySelector("img").src = hero.image;
+  clone.querySelector("h1").textContent = hero.alias;
+  clone.querySelector(".powers").textContent = `Powers: ${hero.powers}`;
+  clone.querySelector(".outfit").textContent = `Outfit: ${hero.outfit}`;
+  clone.querySelector(".mission").textContent = `Mission: ${hero.mission}`;
+  clone.querySelector(".cape").textContent = `Cape: ${hero.cape}`;
+  clone.querySelector(".weak").textContent = `Weaknesses: ${hero.weaknesses}`;
+  clone.querySelector(".enemies").textContent = `Enemies: ${hero.enemies}`;
+  clone.querySelector("h3").textContent = `Sidekick: ${hero.sidekick.name}`;
+  clone.querySelector(".skcape").textContent = `Cape: ${hero.sidekick.cape}`;
+  const parent = document.querySelector("main");
+  parent.appendChild(clone);
+}
+
+/* <h1>ALIAS</h1>
+<p class="powers">POWERS</p>
+<p class="outfit">outfit</p>
+<p class="mission">MISSION</p>
+<p class="cape">cape</p>
+<p class="weak">weaknesses</p>
+<p class="enemies">enemies</p>
+<h3>sidekick</h3>
+<p class="skname">name</p>
+<p class="skcape">cape</p> */
